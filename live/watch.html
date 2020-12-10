@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./watch.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container modal">
+		<h2>Agora <span>Crud</span></h2>
+		<div class="video" id="video">
+
+			<div class="controls">
+				<img src="../img/x-square (2).svg" alt="" id="quit">
+			</div>
+		</div>
+	</div>
+	<div class="join">
+		<h2>Join a <span>Channel</span></h2>
+		<input type="text" class="main-input" id="channel_name" placeholder="Channel Name">
+		<button class="main-btn" id="jChannel">Join Channel</button>
+	</div>
+
+	<script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.3.0.js"></script>
+	<script src="./watch.js"></script>
+</body>
+</html>
