@@ -124,7 +124,7 @@ function Scrolling(e) {
 //next button
 
 next.addEventListener('click', ()=>{
-    if (n == 3){
+    if (n == 2){
         n = -1;
     }
     TweenLite.to(box, 1, {
@@ -136,7 +136,7 @@ next.addEventListener('click', ()=>{
 //prev button
 prev.addEventListener('click', ()=>{
     if (n == 0){
-        n = 4;
+        n = 3;
     }
     TweenLite.to(box, 1, {
         transform : 'translateZ('+zposition[--n]+'px)'

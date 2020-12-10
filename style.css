@@ -94,7 +94,7 @@ html{
 .typewrite{
     text-align: left;
     font-style: italic;
-    font-size: 0.7rem;
+    font-size: 0.3rem!important;
     color: white;
 }
 .in_nav{
@@ -108,11 +108,12 @@ html{
 }
 .scrolldf{
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     font-size: 1.5rem;
     z-index: 99999;
     transform: translateX(-50%);
+    animation: breathe infinite 1.7s;
 }
 /* Za warudo: end */
 
@@ -143,13 +144,23 @@ html{
 .l4{
     position: absolute;
     color: white;
-    font-size: 0.3rem;
+    font-size: 0.2rem;
     top: 50vh;
     left: 50vw;
     transform: translate3d(-60%,-50%,1700px);
     text-align: center;
     cursor: pointer;
 }
+
+.l4 > a{
+    /* text-decoration: none; */
+    color: inherit;
+}
+
+.l4 > p{
+    padding: 1px 0;
+}
+
 .l5{
     position: absolute;
     top: 50vh;
@@ -173,7 +184,7 @@ html{
 .l7{
     position: absolute;
     color: white;
-    font-size: 0.4rem;
+    font-size: 0.2rem;
     top: 50vh;
     left: 50vw;
     transform: translate3d(-60%,-50%,1200px);
@@ -220,7 +231,73 @@ html{
     }
 
     .container{
-        height: calc(100 * var(--vh));
+        height: calc(100 * var(--vh, 1vh));
+    }
+
+    .next{
+        font-size: 1.7rem!important;
+    }
+
+    .prev{
+        font-size: 1.7rem!important;
+    }
+
+    .typewrite > span{
+        font-size: 0.2rem!important;
+    }
+
+    .l2{
+        height: 20vh;
+        width: 37vw;
+    }
+
+    .l4{
+        font-size: 0.15rem;
+    }
+
+    .l7{
+        font-size: 0.2rem;
+    }
+
+    .l5, .l8{
+        height: 5vh;
+        width: 11vw;
+    }
+
+    .scrolldf{
+        font-size: 0.8rem;
+        animation: breatheM infinite 1.7s;
+    }
+
+    .l1{
+        font-size: 0.4rem;
+        left: 50vw;
+        font-weight: 500;
     }
 
 }
+
+@keyframes breatheM {
+    0% {
+        font-size: 0.8rem;
+    }
+    50% {
+        font-size: 1rem;
+    }
+    100% {
+        font-size: 0.8rem;
+    }
+}
+
+@keyframes breathe {
+    0% {
+        font-size: 1rem;
+    }
+    50% {
+        font-size: 1.2rem;
+    }
+    100% {
+        font-size: 1rem;
+    }
+}
+

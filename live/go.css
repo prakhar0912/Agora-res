@@ -165,7 +165,7 @@ h2 > span{
     }
 
     .container{
-        min-height: calc(100 * var(--vh));
+        min-height: calc(100 * var(--vh, 1vh));
     }
 }
 

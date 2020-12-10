@@ -24,7 +24,7 @@ body{
 
 .container{
     position: relative;
-    min-height: calc(100 * var(--vh));
+    min-height: 100vh;
     background: url('../img/backgrounda.png') no-repeat repeat;
     display: grid;
     grid-template-rows: 10% 90%;
@@ -180,6 +180,9 @@ h2 > span{
     .join{
         min-width: initial;
         width: 80%
+    }
+    .container{
+        min-height: calc(100 * var(--vh, 1vh));
     }
 }
 
