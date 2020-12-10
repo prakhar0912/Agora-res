@@ -117,7 +117,7 @@ html{
 /* Za warudo: end */
 
 .box > div, .box > a{
-    color: lightcoral;
+    color: rgb(246, 105, 105);
 }
 
 .l1{
@@ -151,7 +151,7 @@ html{
 }
 
 .l4 > a{
-    text-decoration: none;
+    /* text-decoration: none; */
     color: inherit;
 }
 
