@@ -37,9 +37,9 @@ html{
     width: 100vw;
 }
 
-.nav > p{
+.nav > div{
     font-size: 1.5rem;
-    z-index: 9999;
+    z-index: 10!important;
     color: white;
 }
 
@@ -54,23 +54,21 @@ html{
     left: 5px;
     transform: rotate(-90deg);
 }
-.name1{
+.okay{
     position: absolute;
     top: 10px;
     left: 10px;
     cursor: pointer;
+    font-size: 1.5rem;
 }
-.name2{
-    position: absolute;
-    bottom: 10px;
-    left: 50px;    
-}
+
 .next{
     position: absolute;
     bottom: 10px;
     right: 10px;
     cursor: pointer;
     font-size: 2.0rem!important;
+    z-index: 9999;
 }
 .prev{
     position: absolute;
@@ -78,6 +76,7 @@ html{
     left: 10px;
     cursor: pointer;
     font-size: 2.0rem!important;
+    z-index: 9999;
 
 }
 .logo1{
@@ -97,7 +96,7 @@ html{
     font-size: 0.3rem!important;
     color: white;
 }
-.in_nav{
+/* .in_nav{
     position: absolute;
     top: 55vh;
     left: 0;
@@ -105,7 +104,7 @@ html{
     background: transparent;
     width: 4vw;
     transform: translateY(-50%);
-}
+} */
 .scrolldf{
     position: absolute;
     bottom: 20px;
@@ -149,11 +148,10 @@ html{
     left: 50vw;
     transform: translate3d(-60%,-50%,1700px);
     text-align: center;
-    cursor: pointer;
 }
 
 .l4 > a{
-    /* text-decoration: none; */
+    text-decoration: none;
     color: inherit;
 }
 
