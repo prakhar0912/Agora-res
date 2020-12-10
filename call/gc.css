@@ -24,7 +24,7 @@ body{
 
 .container{
     position: relative;
-    min-height: 100vh;
+    min-height: calc(100 * var(--vh));
     background: url('../img/backgrounda.png') no-repeat repeat;
     display: grid;
     grid-template-rows: 10% 90%;

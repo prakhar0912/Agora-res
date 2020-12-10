@@ -4,7 +4,7 @@ const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
 const zposition = [0,1540,2030,2520];
-
+let n = 0
 
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);

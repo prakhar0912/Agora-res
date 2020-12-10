@@ -167,6 +167,10 @@ h2 > span{
         min-width: initial;
         width: 80%
     }
+
+    .container{
+        min-height: calc(100 * var(--vh));
+    }
 }
 
 .hide{

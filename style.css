@@ -13,7 +13,7 @@ body{
     transform-style: preserve-3d;
     will-change: transform;
     perspective: 3500px;
-    overflow: hidden;  
+    overflow: hidden;
 }
 
 html{
@@ -38,14 +38,15 @@ html{
 }
 
 .nav > p{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     z-index: 9999;
+    color: white;
 }
 
 .slinger{
     position: absolute;
     top: 10px;
-    left: 30px;
+    left: 20px;
 }
 .web{
     position: absolute;
@@ -55,9 +56,9 @@ html{
 }
 .name1{
     position: absolute;
-    bottom: 90px;
-    left: -10px;
-    transform: rotate(90deg);
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
 }
 .name2{
     position: absolute;
@@ -67,20 +68,22 @@ html{
 .next{
     position: absolute;
     bottom: 10px;
-    right: 40px;
+    right: 10px;
     cursor: pointer;
+    font-size: 2.0rem!important;
 }
 .prev{
     position: absolute;
-    bottom: 90px;
-    right: 5px;
-    transform: rotate(90deg);
+    bottom: 10px;
+    left: 10px;
     cursor: pointer;
+    font-size: 2.0rem!important;
+
 }
 .logo1{
     position: absolute;
     top: 10px;
-    right: 50px;
+    right: 10px;
 }
 .logo2{
     position: absolute;
@@ -119,9 +122,9 @@ html{
 
 .l1{
     position: absolute;
-    font-size: 1.2vw;
+    font-size: 1vw;
     top: 50vh;
-    left: 46vw;
+    left: 47vw;
     transform: translate3d(-60%,-50%,2500px);
     text-align: left;
 }
@@ -202,12 +205,22 @@ html{
     width: 10vw;
     transform: translate3d(-50%,-50%,600px) rotateY(-10deg) rotateX(25deg);
 }
+.l12{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-50%,-50%,400px);
+}
 
 
 @media (max-width: 800px){
     
     .nav > p{
         font-size: 1rem;
+    }
+
+    .container{
+        height: calc(100 * var(--vh));
     }
 
 }
