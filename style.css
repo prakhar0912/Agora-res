@@ -235,10 +235,14 @@ html{
 
     .next{
         font-size: 1.3rem!important;
+        bottom: 80px;
+
     }
 
     .prev{
         font-size: 1.3rem!important;
+        bottom: 80px;
+
     }
 
     .typewrite > span{
