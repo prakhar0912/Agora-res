@@ -218,7 +218,7 @@ html{
     position: absolute;
     top: 50vh;
     left: 50vw;
-    transform: translate3d(-50%,-50%,400px);
+    transform: translate3d(-50%,-50%,00px);
 }
 
 
@@ -228,7 +228,7 @@ html{
         font-size: 1rem;
     }
 
-    body{
+    body, .nav{
         height: calc(100 * var(--vh, 1vh));
         max-height: calc(100 * var(--vh, 1vh));
     }
@@ -266,6 +266,7 @@ html{
     .scrolldf{
         font-size: 0.7rem;
         animation: breatheM infinite 1.7s;
+        bottom: 80px;
     }
 
     .l1{
