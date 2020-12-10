@@ -80,6 +80,7 @@ h2 > span{
     grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
     justify-items: center;
     align-items: center;
+    min-height: 80vh;
 }
 
 .video{

@@ -76,6 +76,7 @@ h2 > span{
     width: 90%;
     border-radius: 30px;
     box-shadow: var(--shadow);
+    min-height: 80vh;
 }
 
 .video > div{
