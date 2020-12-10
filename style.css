@@ -234,11 +234,11 @@ html{
     }
 
     .next{
-        font-size: 1.7rem!important;
+        font-size: 1.3rem!important;
     }
 
     .prev{
-        font-size: 1.7rem!important;
+        font-size: 1.3rem!important;
     }
 
     .typewrite > span{
@@ -264,7 +264,7 @@ html{
     }
 
     .scrolldf{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         animation: breatheM infinite 1.7s;
     }
 
@@ -278,13 +278,13 @@ html{
 
 @keyframes breatheM {
     0% {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     50% {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     100% {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 }
 
