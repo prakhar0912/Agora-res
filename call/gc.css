@@ -183,6 +183,11 @@ h2 > span{
     }
     .container{
         min-height: calc(100 * var(--vh, 1vh));
+        min-width: 400px;
+    }
+
+    .videos{
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 

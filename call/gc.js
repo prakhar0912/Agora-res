@@ -35,7 +35,7 @@ let initClientAndJoinChannel = (agoraAppId, channelName) => {
 
 let addNewPerson = (id) => {
     let div = document.createElement("div");
-    alert(id)
+    // alert(id)
     div.id = `${id}_container`
     div.classList.add('video')
     div.innerHTML = `
