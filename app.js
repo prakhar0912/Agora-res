@@ -34,26 +34,21 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 0 ) {
-            /* left swipe */ 
-        } else {
-            /* right swipe */
-        }                       
-    } else {
+    if ( Math.abs( xDiff ) < Math.abs( yDiff ) ) {/*most significant*/
         if ( yDiff > 0 ) {
-            /* up swipe */
             var evt = document.createEvent('MouseEvents');
             evt.initEvent('mousewheel', true, true);
             evt.wheelDelta = +100;
             document.dispatchEvent(evt); 
         } else { 
-            /* down swipe */
             var evt = document.createEvent('MouseEvents');
             evt.initEvent('mousewheel', true, true);
             evt.wheelDelta = -100;
             document.dispatchEvent(evt); 
-        }                                                                 
+        }                   
+    // } else {
+                                                                        
+    // }
     }
     /* reset values */
     xDown = null;
@@ -63,7 +58,7 @@ function handleTouchMove(evt) {
 let converter = 1;
 
 if(window.innerWidth < 800){
-    converter = 10;
+    converter = 8;
 }
 else{
     converter = 1;

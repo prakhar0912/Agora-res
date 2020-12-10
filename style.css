@@ -224,7 +224,7 @@ html{
 
 @media (max-width: 800px){
     
-    .nav > p{
+    .nav > div{
         font-size: 1rem;
     }
 
