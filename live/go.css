@@ -158,6 +158,14 @@ h2 > span{
 }
 
 
+@media(max-width: 800px){
+    .join{
+        min-width: initial;
+        width: 80%
+    }
+}
+
+
 .hide{
     display: none;
 }

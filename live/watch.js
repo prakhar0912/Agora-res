@@ -4,6 +4,7 @@ let joinChannelBtn = document.querySelector('#jChannel')
 let channelNameI = document.querySelector('#channel_name')
 let modal = document.querySelector('.join')
 let container = document.querySelector('.container')
+let quitBtn = document.querySelector('#quit')
 
 joinChannelBtn.addEventListener('click', (event) => {
   let agoraAppId = "26ec1c7ca4044efc8b2631858ba9eb35";
@@ -65,3 +66,5 @@ let joinChannel = (channelName) => {
 let leaveChannel = () => {
   client.leave(() => {location.reload()}, (err) => {console.error(err)});
 }
+
+quitBtn.addEventListener('click', leaveChannel)

@@ -69,13 +69,27 @@ h2 > span{
     color: lightcoral;
 }
 
-.video{
+.videos{
     position: relative;
     background-color: white;
     height: 90%;
     width: 90%;
     border-radius: 30px;
     box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    justify-items: center;
+    align-items: center;
+}
+
+.video{
+    position: relative;
+    background-color:lightcoral;
+    height: 95%;
+    width: 95%;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+
 }
 
 .video > div{
@@ -90,13 +104,17 @@ h2 > span{
     margin: 20px auto;
     padding: 10px 50px;
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: repeat(3, 33%);
     align-items: center;
     justify-items: center;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     z-index: 1;
-    min-width: 200px;
+    min-width: 300px;
+}
+
+.control{
+    grid-template-columns: repeat(2, 50%);
 }
 
 /* .controls > div{
@@ -157,17 +175,14 @@ h2 > span{
     background-color: lightcoral!important;
 }
 
+
 @media(max-width: 800px){
-
-    html{
-        font-size: 12px;
-    }
-
     .join{
         min-width: initial;
         width: 80%
     }
 }
+
 
 .hide{
     display: none;

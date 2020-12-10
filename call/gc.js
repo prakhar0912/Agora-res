@@ -7,6 +7,7 @@ let videoDiv = document.querySelector('#video')
 let micBtn = document.querySelector('#mic')
 let vidBtn = document.querySelector('#vid')
 let quitBtn = document.querySelector('#quit')
+let videoContainer = document.querySelector('.videos')
 
 let mainStreamId;
 let cameraVideoProfile = '720p_6';
@@ -32,6 +33,26 @@ let initClientAndJoinChannel = (agoraAppId, channelName) => {
     }, (err) => { console.log(err) });
 }
 
+let addNewPerson = (id) => {
+    let div = document.createElement("div");
+    alert(id)
+    div.id = `${id}_container`
+    div.classList.add('video')
+    div.innerHTML = `
+
+    <div class="controls control">
+        <div id="vid-${id}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+        </div>
+        <div id="mic-${id}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mic"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+        </div>
+    </div>
+
+    `
+    videoContainer.appendChild(div);
+}
+
 
 client.on('stream-added', (evt) => {
     let stream = evt.stream;
@@ -43,9 +64,9 @@ client.on('stream-subscribed', function (evt) {
     let remoteStream = evt.stream;
     let remoteId = remoteStream.getId();
     console.log("Subscribe remote stream successfully: " + remoteId);
-    console.warn('here')
+    addNewPerson(remoteId)
     mainStreamId = remoteId;
-    remoteStream.play('video');
+    remoteStream.play(`${remoteId}_container`);
 });
 
 
@@ -54,6 +75,36 @@ client.on('stream-removed', (evt) => {
     stream.stop();
     stream.close();
     location.reload()
+});
+
+client.on("peer-leave", (evt) => {
+    let stream = evt.stream;
+    let streamId = String(stream.getId());
+    stream.close();
+    document.getElementById(`${streamId}_container`).remove()
+});
+
+
+// show mute icon whenever a remote has muted their mic
+client.on("mute-audio", function (evt) {
+    console.log("Remote stream: " + evt.uid + "has muted audio");
+    document.querySelector(`#mic-${evt.uid}`).classList.toggle('disabled')
+});
+
+client.on("unmute-audio", function (evt) {
+    console.log("Remote stream: " + evt.uid + "has muted audio");
+    document.querySelector(`#mic-${evt.uid}`).classList.toggle('disabled')
+});
+
+// show user icon whenever a remote has disabled their video
+client.on("mute-video", function (evt) {
+    console.log("Remote stream: " + evt.uid + "has muted video");
+    document.querySelector(`#vid-${evt.uid}`).classList.toggle('disabled')
+});
+
+client.on("unmute-video", function (evt) {
+    console.log("Remote stream: " + evt.uid + "has un-muted video");
+    document.querySelector(`#vid-${evt.uid}`).classList.toggle('disabled')
 });
 
 
@@ -97,72 +148,6 @@ let leaveChannel = () => {
     }, (err) => { console.error(err) });
 }
 
-// function changeStreamSource(deviceIndex, deviceType) {
-//     console.log('Switching stream sources for: ' + deviceType);
-//     let deviceId;
-//     let existingStream = false;
-//     if (deviceType === "video") {
-//         deviceId = devices.cameras[deviceIndex].deviceId
-//     }
-//     if (deviceType === "audio") {
-//         deviceId = devices.mics[deviceIndex].deviceId;
-//     }
-//     localStreams.camera.stream.switchDevice(deviceType, deviceId, function () {
-//         console.log('successfully switched to new device with id: ' + JSON.stringify(deviceId));
-//         if (deviceType === "audio") {
-//             localStreams.camera.micId = deviceId;
-//         } else if (deviceType === "video") {
-//             localStreams.camera.camId = deviceId;
-//         } else {
-//             console.log("unable to determine deviceType: " + deviceType);
-//         }
-//     }, function () {
-//         console.log('failed to switch to new device with id: ' + JSON.stringify(deviceId));
-//     });
-// }
-
-
-// function getCameraDevices() {
-//     client.getCameras(function (cameras) {
-//         devices.cameras = cameras;
-//         cameras.forEach(function (camera, i) {
-//             let name = camera.label.split('(')[0];
-//             let optionId = 'camera_' + i;
-//             let deviceId = camera.deviceId;
-//             if (i === 0 && localStreams.camera.camId === '') {
-//                 localStreams.camera.camId = deviceId;
-//             }
-//             $('#camera-list').append('<a class="dropdown-item" id="' + optionId + '">' + name + '</a>');
-//         });
-//         $('#camera-list a').click(function (event) {
-//             let index = event.target.id.split('_')[1];
-//             changeStreamSource(index, "video");
-//         });
-//     });
-// }
-
-
-// function getMicDevices() {
-//     client.getRecordingDevices(function (mics) {
-//         devices.mics = mics;
-//         mics.forEach(function (mic, i) {
-//             let name = mic.label.split('(')[0];
-//             let optionId = 'mic_' + i;
-//             let deviceId = mic.deviceId;
-//             if (i === 0 && localStreams.camera.micId === '') {
-//                 localStreams.camera.micId = deviceId;
-//             }
-//             if (name.split('Default - ')[1] != undefined) {
-//                 name = '[Default Device]'
-//             }
-//             $('#mic-list').append('<a class="dropdown-item" id="' + optionId + '">' + name + '</a>');
-//         });
-//         $('#mic-list a').click(function (event) {
-//             let index = event.target.id.split('_')[1];
-//             changeStreamSource(index, "audio");
-//         });
-//     });
-// }
 
 
 let createChannelBtn = document.querySelector('#cChannel')
@@ -207,7 +192,7 @@ function enableUiControls() {
 }
 
 
-let toggleMic = (ele) => {
+let toggleMic = (ele, evt) => {
     if (ele.classList[0] != 'disabled') {
         localStreams.camera.stream.muteAudio();
         console.log("Disabled Audio");
@@ -220,7 +205,7 @@ let toggleMic = (ele) => {
 }
 
 
-let toggleVideo = (ele) => {
+let toggleVideo = (ele, evt) => {
     if (ele.classList[0] != 'disabled') {
         localStreams.camera.stream.muteVideo();
         console.log("Disabled Video");
