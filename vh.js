@@ -5,4 +5,4 @@ let resiz = () => {
     }
 }
 resiz()
-window.addEventListener('resize', resiz)
+// window.addEventListener('resize', resiz)
