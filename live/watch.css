@@ -173,7 +173,6 @@ h2 > span{
     .container,body{
         min-height: calc(100 * var(--vh, 1vh));
         height: -webkit-fill-available;
-
     }
 }
 
