@@ -162,17 +162,13 @@ h2 > span{
 @media(max-width: 800px){
     .join{
         min-width: initial;
-        width: 80%
+        width: 80%;
+        top: calc(50 * var(--vh, 1vh));
     }
 
-    .container, body{
-        /* min-height: calc(100 * var(--vh, 1vh));
-        height: calc(100 * var(--vh, 1vh)); */
-    }
-
-    .container, body{
-        /* height: 100vh; */
-        min-height: -webkit-fill-available;
+    .container,body{
+        min-height: calc(100 * var(--vh, 1vh));
+        height: -webkit-fill-available;
     }
 }
 
