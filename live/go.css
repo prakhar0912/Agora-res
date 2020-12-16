@@ -165,8 +165,14 @@ h2 > span{
         width: 80%
     }
 
-    .container{
-        min-height: calc(100 * var(--vh, 1vh));
+    .container, body{
+        /* min-height: calc(100 * var(--vh, 1vh));
+        height: calc(100 * var(--vh, 1vh)); */
+    }
+
+    .container, body{
+        height: 100vh;
+        min-height: -webkit-fill-available;
     }
 }
 
